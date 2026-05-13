@@ -1,0 +1,36 @@
+"""Structured logging setup for Arceval."""
+
+from __future__ import annotations
+
+import logging
+import sys
+
+
+def setup_logging(level: str = "INFO") -> logging.Logger:
+    """Configure and return the application logger.
+
+    Args:
+        level: Log level string (DEBUG, INFO, WARNING, ERROR).
+
+    Returns:
+        Configured logger instance.
+    """
+    logger = logging.getLogger("arceval")
+
+    if logger.handlers:
+        return logger
+
+    numeric_level = getattr(logging, level.upper(), logging.INFO)
+    logger.setLevel(numeric_level)
+
+    handler = logging.StreamHandler(sys.stderr)
+    handler.setLevel(numeric_level)
+
+    formatter = logging.Formatter(
+        fmt="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+    )
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+
+    return logger
