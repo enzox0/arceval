@@ -5,9 +5,11 @@
 <img width="1115" height="913" alt="Screenshot 2026-05-13 105433" src="https://github.com/user-attachments/assets/d9acafae-2f37-49fe-8e89-3a8c5aa2be37" />
 
 Arceval is a CLI tool that walks a software project, samples the files that matter,
-and asks Claude to score it across eight enterprise-readiness dimensions:
+and asks an AI model to score it across eight enterprise-readiness dimensions:
 architecture, security, features, code quality, scalability, observability,
 documentation, and DevOps. The report prints to your terminal in full color.
+
+Supports **Claude**, **GPT**, and **Gemini** — switch providers with a single env var.
 
 ## Install
 
@@ -24,12 +26,29 @@ uvx arceval
 
 ## Configure
 
-Copy `.env.example` to `.env` and set your Anthropic key:
+Copy `.env.example` to `.env` and set your provider and API key:
 
 ```bash
 cp .env.example .env
-# edit .env and add ANTHROPIC_API_KEY=sk-ant-...
 ```
+
+Example configurations:
+
+```bash
+# Anthropic Claude
+ARCEVAL_PROVIDER=anthropic
+ANTHROPIC_API_KEY=sk-ant-...
+
+# OpenAI GPT
+ARCEVAL_PROVIDER=openai
+OPENAI_API_KEY=sk-...
+
+# Google Gemini
+ARCEVAL_PROVIDER=gemini
+GEMINI_API_KEY=...
+```
+
+See [`docs/configuration.md`](docs/configuration.md) for all available options.
 
 ## Use
 
@@ -44,21 +63,24 @@ uv run arceval --path /home/you/my-saas-app
 uv run arceval --path . --json report.json --markdown report.md
 ```
 
-See [`docs/architecture.md`](docs/architecture.md) for the layer design
-and [`docs/configuration.md`](docs/configuration.md) for every env var.
-
 ## Layers
 
 ```
 cli/            presentation / command parsing   (typer)
 core/           domain models, services, ports   (pure python)
-infrastructure/ anthropic SDK, filesystem I/O
+infrastructure/ AI SDK clients, filesystem I/O
 presentation/   rich terminal renderer, exporters
 shared/         config, logging, constants, errors
 ```
 
-Inner layers never import from outer layers. Claude, the terminal,
+Inner layers never import from outer layers. AI providers, the terminal,
 and the filesystem all sit behind abstract ports defined in `core/`.
+
+See [`docs/architecture.md`](docs/architecture.md) for the full layer design.
+
+## Author
+
+Developed by **Renz Siguenza** ([@enzox0](https://github.com/enzox0))
 
 ## License
 
