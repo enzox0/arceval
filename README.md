@@ -24,6 +24,16 @@ uv run arceval
 uvx arceval
 ```
 
+Or install with pip:
+
+```bash
+pip install arceval
+arceval
+
+# if arceval isn't on your PATH, use:
+python -m arceval
+```
+
 ## Configure
 
 Copy `.env.example` to `.env` and set your provider and API key:
