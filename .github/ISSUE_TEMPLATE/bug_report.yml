@@ -1,0 +1,111 @@
+name: Bug Report
+description: Report a bug or unexpected behavior in Arceval.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report this issue. Please fill out the
+        sections below to help us diagnose and resolve the problem.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear and concise description of the bug.
+      placeholder: Describe what happened.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Provide the exact steps to reproduce the behavior.
+      placeholder: |
+        1. Run `uv run arceval --path /path/to/project`
+        2. Wait for analysis to complete
+        3. Observe the error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+      placeholder: Describe the expected outcome.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened? Include error messages or screenshots if applicable.
+      placeholder: Describe what actually occurred.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: provider
+    attributes:
+      label: AI Provider
+      description: Which AI provider were you using?
+      options:
+        - Anthropic (Claude)
+        - OpenAI (GPT)
+        - Google (Gemini)
+        - Other (OpenAI-compatible)
+    validations:
+      required: true
+
+  - type: input
+    id: model
+    attributes:
+      label: Model
+      description: Which model were you using?
+      placeholder: e.g., claude-sonnet-4-5, gpt-4o, gemini-2.0-flash
+    validations:
+      required: false
+
+  - type: input
+    id: version
+    attributes:
+      label: Arceval Version
+      description: Output of `uv run arceval --version`.
+      placeholder: e.g., 0.1.0
+    validations:
+      required: true
+
+  - type: input
+    id: python-version
+    attributes:
+      label: Python Version
+      description: Output of `python --version`.
+      placeholder: e.g., 3.12.4
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      options:
+        - Windows
+        - macOS
+        - Linux
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other information that might be relevant (logs, configuration, project structure).
+      placeholder: Add any other context here.
+    validations:
+      required: false
