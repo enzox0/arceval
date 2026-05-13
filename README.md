@@ -2,6 +2,8 @@
 
 **Architecture, evaluated.** AI-powered enterprise readiness analyzer for codebases.
 
+<img width="1115" height="913" alt="Screenshot 2026-05-13 105433" src="https://github.com/user-attachments/assets/d9acafae-2f37-49fe-8e89-3a8c5aa2be37" />
+
 Arceval is a CLI tool that walks a software project, samples the files that matter,
 and asks Claude to score it across eight enterprise-readiness dimensions:
 architecture, security, features, code quality, scalability, observability,
