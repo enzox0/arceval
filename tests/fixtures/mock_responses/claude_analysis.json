@@ -1,0 +1,53 @@
+{
+  "project_name": "sample-project",
+  "overall_score": 7.6,
+  "overall_label": "Strong Enterprise-Level System",
+  "categories": [
+    {
+      "name": "Architecture",
+      "score": 9,
+      "notes": "Excellent layered design, minor transaction improvements needed"
+    },
+    {
+      "name": "Security",
+      "score": 9,
+      "notes": "Comprehensive security measures, could add more monitoring"
+    },
+    {
+      "name": "Features",
+      "score": 10,
+      "notes": "Rich feature set appropriate for enterprise use"
+    },
+    {
+      "name": "Code Quality",
+      "score": 8,
+      "notes": "Good TypeScript usage, needs more tests"
+    },
+    {
+      "name": "Scalability",
+      "score": 7,
+      "notes": "Good foundation, needs caching and load testing"
+    },
+    {
+      "name": "Observability",
+      "score": 5,
+      "notes": "Basic logging, needs APM and metrics"
+    },
+    {
+      "name": "Documentation",
+      "score": 7,
+      "notes": "Good README, needs API spec"
+    },
+    {
+      "name": "DevOps",
+      "score": 6,
+      "notes": "Basic setup, needs CI/CD pipeline"
+    }
+  ],
+  "recommendations": [
+    "Add APM tooling (Datadog, OpenTelemetry)",
+    "Set up CI/CD pipeline (GitHub Actions)",
+    "Write API specification (OpenAPI/Swagger)",
+    "Add caching layer (Redis) for scalability"
+  ]
+}
