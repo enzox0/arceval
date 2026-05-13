@@ -1,0 +1,1 @@
+"""Terminal presentation using rich."""
